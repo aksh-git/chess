@@ -8,9 +8,88 @@
         <meta name="description" content="Play Chess Free Online - Have fun challenging the computers!!">
         <title>Play Chess online | Akash</title>
         <link rel="stylesheet" href="./style.css" />
+        <style>
+            .loader{
+                height: 100vh;
+                width: 100vw;
+                position: absolute;
+                top: 0;
+                background: #9da3a3;
+                z-index: 10;
+                overflow: hidden;
+            }
+            .loader-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20vh;
+            }
+            .loader-content .chess-logo{
+                width: 30vh;
+            }
+            .loader .logo{
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 10vh;
+            }
+            /* spinner */
+            .lds-ring {
+              display: inline-block;
+              position: relative;
+              width: 80px;
+              height: 80px;
+            }
+            .lds-ring div {
+              box-sizing: border-box;
+              display: block;
+              position: absolute;
+              width: 64px;
+              height: 64px;
+              margin: 8px;
+              border: 8px solid #181818;
+              border-radius: 50%;
+              animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+              border-color: #181818 transparent transparent transparent;
+            }
+            .lds-ring div:nth-child(1) {
+              animation-delay: -0.45s;
+            }
+            .lds-ring div:nth-child(2) {
+              animation-delay: -0.3s;
+            }
+            .lds-ring div:nth-child(3) {
+              animation-delay: -0.15s;
+            }
+            @keyframes lds-ring {
+              0% {
+                transform: rotate(0deg);
+              }
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+
+        </style>
     </head>
     <body>
-        <div class="main">
+        <div id="loader" class="loader">
+            <div class="loader-content">
+                <img class="chess-logo" src="/assets/chess-logo.png" />
+            </div>
+            <center>
+                <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="logo">
+                    <a target="_blank" href="https://aksh-git.github.io/"><img src="https://raw.githubusercontent.com/aksh-git/aksh-git.github.io/main/logo.svg" /></a>
+                </div>
+            </center>
+        </div>
+
+        <div id="mainHead" class="main">
             <div class="heading">
                 <span class="banner-container">
                     <img class="banner-img" src="./assets/chess-banner.png" alt="banner"/>
@@ -19,23 +98,23 @@
 
             <div class="decp">
                 <div class="btn">
-                    <button class="play-button">Play</button>
+                    <button id="enterBtn" class="play-button" onclick="enterPressed()" >Play</button>
                 </div>
                 <div class="inside">
                     <p style="font-size: 1.8rem;">Play <strong style="color: aliceblue;">Chess</strong> with AI</p>
                     <p style="font-size: 0.916rem;margin-top: -30px;">Have fun challenging the computer!!</p> 
                     <br>
-                    <p class="enter-btn">Press Enter To play</p>
-                </div>
-                                   
-            </div>
-            
-            <div class="footer">
-                <div class="content">
-                    <a target="_blank" href="https://aksh-git.github.io/"><img src="https://raw.githubusercontent.com/aksh-git/aksh-git.github.io/main/logo.svg" /></a>
-                </div>
+                    <p class="enter-btn">Press Enter To play..</p>
+                </div>          
             </div>
         </div>
+
+        <div class="copyright">
+            <div class="content">
+                <a target="_blank" href="https://aksh-git.github.io/"><img src="https://raw.githubusercontent.com/aksh-git/aksh-git.github.io/main/logo.svg" /></a>
+            </div>
+        </div>
+
         <!-- main script -->
         <script type="text/javascript" src="./script.js"></script>
     </body>

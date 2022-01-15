@@ -10,7 +10,7 @@ body{
     background-color: #9da3a3;
 }
 .banner-container {
-    margin-top: 15vh;
+    margin-top: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,12 +71,12 @@ body{
         opacity: 0;     
     }
 }
-.footer{
+.copyright{
     width: 100vw;
     position: absolute;
     top: 0; 
 }
-.footer .content{
+.copyright .content{
     padding: 20px 5vh 20px;
     display: flex;
     justify-content: flex-end;
