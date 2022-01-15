@@ -3,11 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="icon" href="./assets/chess-logo.png">
+        <link rel="icon" href="./assets/chess-logo.png" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css" />
+
         <meta name="description" content="Play Chess Free Online - Have fun challenging the computers!!">
         <title>Play Chess online | Akash</title>
-        <link rel="stylesheet" href="./style.css" />
+        <!-- jQuery --> 
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous">
+        </script>
+
+        <link rel="stylesheet"
+        href="/assets/chessboard-1.0.0.min.css">
+
+        <script src="/assets/js/chessboard-1.0.0.min.js"></script>
         <style>
             .loader{
                 height: 100vh;
@@ -104,7 +116,7 @@
                     <p style="font-size: 1.8rem;">Play <strong style="color: aliceblue;">Chess</strong> with AI</p>
                     <p style="font-size: 0.916rem;margin-top: -30px;">Have fun challenging the computer!!</p> 
                     <br>
-                    <p class="enter-btn">Press Enter To play..</p>
+                    <p class="enter-btn">Press Enter To Play..</p>
                 </div>          
             </div>
         </div>
@@ -115,7 +127,16 @@
             </div>
         </div>
 
+        <!-- Play Area -->
+        <div id="playArea" class="play-area">
+            <div class="chess-board">
+                <div id="myBoard"></div>
+            </div>
+        </div>
         <!-- main script -->
+        
         <script type="text/javascript" src="./script.js"></script>
+        <script src="./chess.js"></script>
+        <script src="./main.js"></script>
     </body>
 </html>
