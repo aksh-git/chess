@@ -39,6 +39,11 @@ body{
     animation: border-blink 1.2s infinite;
     border: none;
     backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+.play-button:hover{
+    background: none;
+    color: burlywood;
 }
 @keyframes border-blink {
     5%{
@@ -67,6 +72,13 @@ body{
     }
 }
 .footer{
-    width: 100%;
-    background: blanchedalmond;
+    width: 100vw;
+    position: absolute;
+    top: 0; 
+}
+.footer .content{
+    padding: 20px 5vh 20px;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
 }
