@@ -38,7 +38,7 @@ body{
     font-family: 'Mochiy Pop P One', sans-serif;
     animation: border-blink 1.2s infinite;
     border: none;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(2px);
     cursor: pointer;
 }
 .play-button:hover{
