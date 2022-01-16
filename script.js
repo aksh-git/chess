@@ -75,5 +75,14 @@ function enterPressed(){
 
 
 function resetPLayArea(){
-    
+    reset();
+    min = 0;
+    sec = 0;
 }
+
+
+$('#resetBtn').on('click', function () {
+    resetPLayArea();
+});
+  
+  

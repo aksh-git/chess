@@ -469,10 +469,6 @@ function reset() {
   }
 }
 
-$('#resetBtn').on('click', function () {
-  reset();
-});
-
 
 
 $('#showHint').change(function () {
