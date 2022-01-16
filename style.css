@@ -98,6 +98,7 @@ body{
     left: 20vw;
     margin-top: 15vh;
     width: 450px;
+    cursor: grab;
 }
 .chess-board{
     position: relative;
@@ -187,6 +188,11 @@ body{
     width: 50%;
     height: 20px;
 }
+.music-area{
+    background-color: #9da3a3;
+}
+
+
 @media screen and (max-width: 600px) {
     body {
         background: #9da3a3;

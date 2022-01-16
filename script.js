@@ -5,6 +5,10 @@ let loader = document.getElementById("loader");
 let playArea = document.getElementById("playArea");
 let topNotifer = document.getElementById("topNotification");
 let topNtext = document.getElementById("topNtext");
+let messageBar = document.getElementById("message");
+let msgBigText = document.getElementById("bigText");
+let msgSmallText = document.getElementById("smallText");
+let takeBreakBtn = document.getElementById("takeBrake");
 //let hourL = document.getElementById("hour");
 let minL = document.getElementById("min");
 let secL = document.getElementById("sec");
@@ -12,6 +16,7 @@ let secL = document.getElementById("sec");
 let min = 0;
 let sec = 0;
 let isPLaying = false;
+let chessTime;
 
 window.onload = ()=>{
    loader.style.display="none";
@@ -27,12 +32,21 @@ function topNotify(msg,autoRemove){
         },2000);
     }
 }
+//message
+function showMessage(topic,msg){
+    msgBigText.innerHTML = topic;
+    msgSmallText.innerHTML = msg; 
+    messageBar.style.display="block";
+}
+function removeMessage(){
+    messageBar.style.display="none";
+}
+
 //timer
 function addZero(i) {
     if (i < 10) {i = "0" + i}
     return i;
 }
-//timer
 function chessTimer(){
     sec = sec + 1;
     sec = parseInt(sec);
@@ -67,22 +81,35 @@ function enterPressed(){
         isPLaying=true;
         mainHead.style.display="none";
         playArea.style.display="block";
-        setInterval(() => {
+        chessTime = setInterval(() => {
             chessTimer();
         }, 1000);
     }
 }
 
-
 function resetPLayArea(){
-    reset();
     min = 0;
     sec = 0;
+    reset();
+    removeMessage();
 }
-
 
 $('#resetBtn').on('click', function () {
     resetPLayArea();
 });
   
-  
+$('#takeBrake').on('click',function(){
+    if(takeBreakBtn.innerHTML==="Resume"){
+        chessTime = setInterval(()=>{
+            chessTimer();
+        },1000);
+        takeBreakBtn.innerHTML="Take a Break";
+        removeMessage();    
+    }else{
+        clearInterval(chessTime);
+        takeBreakBtn.innerHTML="Resume";
+        showMessage("Paused!!","Press Enter to Resume...");
+    }
+});
+
+

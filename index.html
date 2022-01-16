@@ -117,7 +117,7 @@
                     <p style="font-size: 1.8rem;">Play <strong style="color: aliceblue;">Chess</strong> with AI</p>
                     <p style="font-size: 0.916rem;margin-top: -30px;">Have fun challenging the computer!!</p> 
                     <br>
-                    <p class="enter-btn">Press Enter To Play..</p>
+                    <p id="enterBtnText" class="enter-btn">Press Enter To Play..</p>
                 </div>          
             </div>
         </div>
@@ -144,7 +144,11 @@
                         <span class="sec" id="sec">00</span>
                     </div>
                 </div>
-                <button class="btnStop" id="">Take a brake</button>
+                <button class="btnStop" id="takeBrake">Take a break</button>
+            </div>
+
+            <div class="music">
+
             </div>
         </div>
 
@@ -152,11 +156,13 @@
             <span class="topNtext" id="topNtext">Welcome</span>
         </div>
 
-        <div class="message">
-            <span class="big-text">Checkmate!!</span>
+        <div id="message" class="message">
+            <span class="big-text" id="bigText">Checkmate!!</span>
             <br><br>
-            <span class="small-text">description will go here</span>
+            <span class="small-text" id="smallText">description will go here</span>
         </div>
+
+
         <!-- main script -->
         
         <script type="text/javascript" src="./script.js"></script>

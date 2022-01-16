@@ -317,35 +317,32 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
 function checkStatus(color) {
   if (game.in_checkmate()) {
     //$('#status').html(`<b>Checkmate!</b> Oops, <b>${color}</b> lost.`);
-    topNotify("Checkmate Opps, Lost",false)
+    showMessage("Checkmate!!","You Lost.");
   } else if (game.insufficient_material()) {
     //$('#status').html(`It's a <b>draw!</b> (Insufficient Material)`);
-    topNotify("It's a draw!",false)
+    showMessage("DRAW","It's a draw!! (Insufficient Material)");
   } else if (game.in_threefold_repetition()) {
     //$('#status').html(`It's a <b>draw!</b> (Threefold Repetition)`);
-    topNotify("It's a draw!",false)
+    showMessage("DRAW","It's a draw!! (Threefold Repetition)");
   } else if (game.in_stalemate()) {
     //$('#status').html(`It's a <b>draw!</b> (Stalemate)`);
-    topNotify("It's a draw!",false)
+    showMessage("DRAW","It's a draw!! (Stalemate)");
   } else if (game.in_draw()) {
     //$('#status').html(`It's a <b>draw!</b> (50-move Rule)`);
-    topNotify("It's a draw!",false)
+    showMessage("DRAW","It's a draw!!");
   } else if (game.in_check()) {
     //$('#status').html(`Oops, <b>${color}</b> is in <b>check!</b>`);
-    topNotify("Oops, "+color+" is in check",false)
+    topNotify("Oops, "+color+" is in check",true);
     return false;
   } else {
     //$('#status').html(`No check, checkmate, or draw.`);
     return false;
   }
-  if(game.game_over){
-    topNotify("Game Over",false)
-  }
   return true;
 }
 
 function updateAdvantage() {
-  checkStatus("white")
+  checkStatus("white");
   $('#progressBar').attr({
     'aria-valuenow': `${-globalSum}`,
     style: `width: ${((-globalSum + 2000) / 4000) * 100}%`,
@@ -359,7 +356,7 @@ function getBestMove(game, color, currSum) {
   
   positionCount = 0;
 
-  var depth =3; 
+  var depth = 1; 
 
   if (color === 'b') {
     //var depth = parseInt($('#search-depth').find(':selected').text());
