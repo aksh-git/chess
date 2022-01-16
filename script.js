@@ -112,4 +112,3 @@ $('#takeBrake').on('click',function(){
     }
 });
 
-
