@@ -317,36 +317,36 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
 function checkStatus(color) {
   if (game.in_checkmate()) {
     //$('#status').html(`<b>Checkmate!</b> Oops, <b>${color}</b> lost.`);
+    topNotify("Checkmate Opps, Lost",false)
   } else if (game.insufficient_material()) {
     //$('#status').html(`It's a <b>draw!</b> (Insufficient Material)`);
+    topNotify("It's a draw!",false)
   } else if (game.in_threefold_repetition()) {
     //$('#status').html(`It's a <b>draw!</b> (Threefold Repetition)`);
+    topNotify("It's a draw!",false)
   } else if (game.in_stalemate()) {
     //$('#status').html(`It's a <b>draw!</b> (Stalemate)`);
+    topNotify("It's a draw!",false)
   } else if (game.in_draw()) {
     //$('#status').html(`It's a <b>draw!</b> (50-move Rule)`);
+    topNotify("It's a draw!",false)
   } else if (game.in_check()) {
     //$('#status').html(`Oops, <b>${color}</b> is in <b>check!</b>`);
+    topNotify("Oops, "+color+" is in check",false)
     return false;
   } else {
     //$('#status').html(`No check, checkmate, or draw.`);
     return false;
   }
+  if(game.game_over){
+    topNotify("Game Over",false)
+  }
   return true;
 }
 
 function updateAdvantage() {
-  if (globalSum > 0) {
-    //$('#advantageColor').text('Black');
-    $('#advantageNumber').text(globalSum);
-  } else if (globalSum < 0) {
-    //$('#advantageColor').text('White');
-    $('#advantageNumber').text(-globalSum);
-  } else {
-    //$('#advantageColor').text('Neither side');
-    $('#advantageNumber').text(globalSum);
-  }
-  $('#advantageBar').attr({
+  checkStatus("white")
+  $('#progressBar').attr({
     'aria-valuenow': `${-globalSum}`,
     style: `width: ${((-globalSum + 2000) / 4000) * 100}%`,
   });
@@ -356,6 +356,7 @@ function updateAdvantage() {
  * Calculates the best legal move for the given color.
  */
 function getBestMove(game, color, currSum) {
+  
   positionCount = 0;
 
   var depth =3; 
@@ -428,6 +429,7 @@ function makeBestMove(color) {
       .find('.square-' + squareToHighlight)
       .addClass('highlight-' + colorToHighlight);
   }
+  
 }
 
 /*
@@ -467,97 +469,10 @@ function reset() {
   }
 }
 
-/*
- * Event listeners for various buttons.
-
-$('#ruyLopezBtn').on('click', function () {
-  reset();
-  game.load(
-    'r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1'
-  );
-  board.position(game.fen());
-  window.setTimeout(function () {
-    makeBestMove('b');
-  }, 250);
-});
-$('#italianGameBtn').on('click', function () {
-  reset();
-  game.load(
-    'r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1'
-  );
-  board.position(game.fen());
-  window.setTimeout(function () {
-    makeBestMove('b');
-  }, 250);
-});
-$('#sicilianDefenseBtn').on('click', function () {
-  reset();
-  game.load('rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1');
-  board.position(game.fen());
-});
-$('#startBtn').on('click', function () {
-  reset();
-});
-
-$('#compVsCompBtn').on('click', function () {
-  reset();
-  compVsComp('w');
-});
 $('#resetBtn').on('click', function () {
   reset();
 });
 
-var undo_stack = [];
-
-function undo() {
-  var move = game.undo();
-  undo_stack.push(move);
-
-  // Maintain a maximum stack size
-  if (undo_stack.length > STACK_SIZE) {
-    undo_stack.shift();
-  }
-  board.position(game.fen());
-}
-
-$('#undoBtn').on('click', function () {
-  if (game.history().length >= 2) {
-    $board.find('.' + squareClass).removeClass('highlight-white');
-    $board.find('.' + squareClass).removeClass('highlight-black');
-    $board.find('.' + squareClass).removeClass('highlight-hint');
-
-    // Undo twice: Opponent's latest move, followed by player's latest move
-    undo();
-    window.setTimeout(function () {
-      undo();
-      window.setTimeout(function () {
-        showHint();
-      }, 250);
-    }, 250);
-  } else {
-    alert('Nothing to undo.');
-  }
-});
-
-function redo() {
-  game.move(undo_stack.pop());
-  board.position(game.fen());
-}
-
-$('#redoBtn').on('click', function () {
-  if (undo_stack.length >= 2) {
-    // Redo twice: Player's last move, followed by opponent's last move
-    redo();
-    window.setTimeout(function () {
-      redo();
-      window.setTimeout(function () {
-        showHint();
-      }, 250);
-    }, 250);
-  } else {
-    alert('Nothing to redo.');
-  }
-});
 
 
 $('#showHint').change(function () {
@@ -577,7 +492,6 @@ function showHint() {
   }
 }
 
-*/
 
 /*
  * The remaining code is adapted from chessboard.js examples #5000 through #5005:

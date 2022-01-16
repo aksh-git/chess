@@ -6,9 +6,10 @@
         <link rel="icon" href="./assets/chess-logo.png" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./style.css" />
-
+        <meta name="theme" content="#000000">
         <meta name="description" content="Play Chess Free Online - Have fun challenging the computers!!">
         <title>Play Chess online | Akash</title>
+
         <!-- jQuery --> 
         <script
             src="https://code.jquery.com/jquery-3.5.1.js"
@@ -123,7 +124,7 @@
 
         <div class="copyright">
             <div class="content">
-                <a target="_blank" href="https://aksh-git.github.io/"><img src="https://raw.githubusercontent.com/aksh-git/aksh-git.github.io/main/logo.svg" /></a>
+                <a target="_blank" href="https://aksh-git.github.io/"><img src="./assets/logo.svg" /></a>
             </div>
         </div>
 
@@ -132,6 +133,29 @@
             <div class="chess-board">
                 <div id="myBoard"></div>
             </div>
+            <div id="progressbar">
+                <div id="progressBar"></div>
+              </div>
+            <div class="btns">
+                <button class="btnStop" id="resetBtn">Stop and Reset</button>
+                <div class="chess-timer" id="chess-timer">
+                    <div class="chess-timer-text">
+                        <span class="min" id="min">00 :</span>
+                        <span class="sec" id="sec">00</span>
+                    </div>
+                </div>
+                <button class="btnStop" id="">Take a brake</button>
+            </div>
+        </div>
+
+        <div class="top-notification" id="topNotification">
+            <span class="topNtext" id="topNtext">Welcome</span>
+        </div>
+
+        <div class="message">
+            <span class="big-text">Checkmate!!</span>
+            <br><br>
+            <span class="small-text">description will go here</span>
         </div>
         <!-- main script -->
         

@@ -7,7 +7,11 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Mochiy Pop P One', sans-serif;
-    background-color: #9da3a3;
+    /*background-color: #9da3a3;*/
+    background-image: url('./assets/bg-green-table.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .banner-container {
     margin-top: 20vh;
@@ -43,7 +47,7 @@ body{
 }
 .play-button:hover{
     background: none;
-    color: burlywood;
+    color: #deb887;
 }
 @keyframes border-blink {
     5%{
@@ -88,14 +92,127 @@ body{
     width: 100vw;
     display: none;
 }
+#myBoard{
+    position: absolute;
+    margin: auto;
+    left: 20vw;
+    margin-top: 15vh;
+    width: 450px;
+}
 .chess-board{
     position: relative;
 }
-#myBoard{
+.play-area .btns{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin: auto;
+    left: 24vw;
+    top: 7vh;
+}
+.play-area button{
+    padding: 7px 10px;
+    margin-right: 10px;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    background-color: #b58863;
+    color: #f0d9b5;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+}
+.play-area button:hover{
+    border: 1px solid #f0d9b5;
+}
+.play-area .chess-timer{
+    width: max-content;
+    padding: 7px 10px;
+    margin-right: 10px;
+    background-color: #f0d9b5;
+    color: #b58863;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.top-notification{
+    background: #6c7070;
+    width: max-content;
     position: absolute;
     margin: auto;
     left: 0;
     right: 0;
-    margin-top: 15vh;
-    width: 450px;
+    top: 5%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 7px;
+    transition: 0.3s ease-in-out;
 }
+.top-notification .topNtext{
+    font-size: 1.7rem;
+    padding: 0 20px;
+}
+.message{
+    background: #9da3a3;
+    width: 100vw;
+    height: max-content;
+    overflow-y: scroll;
+    position: fixed;
+    margin: auto;
+    top: 20%;
+    padding: 20px;
+    text-align: center;
+    display: none;
+}
+.message .big-text{
+    font-size: 1.7rem;
+}
+.message .small-text{
+    font-size: 18px;
+}
+#progressbar {
+    background-color: black;
+    border-radius: 5px;
+    padding: 3px;
+    width: 420px;
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    top: 50%;
+    left: -10vh;
+    transform: rotate(-90deg);
+}
+#progressbar>div {
+    background-color: white;
+    width: 50%;
+    height: 20px;
+}
+@media screen and (max-width: 600px) {
+    body {
+        background: #9da3a3;
+    }
+    .play-area{
+        width: 100vw;
+    }
+    .play-area #myBoard{
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        margin-top: 15vh;
+        width: 400px;   
+    }
+    .play-area .btns{
+        margin-top: 2vh;
+        left: 0;
+        right: 0;
+    }
+    #progressbar {
+        margin-top: 45%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        transform: rotate(0deg);
+        width: 380px;
+    }
+  }
