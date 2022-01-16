@@ -317,7 +317,7 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
 function checkStatus(color) {
   if (game.in_checkmate()) {
     //$('#status').html(`<b>Checkmate!</b> Oops, <b>${color}</b> lost.`);
-    showMessage("Checkmate!!","You Lost.");
+    showMessage("Checkmate!!",color==="black"?"You Wins":"You Lost.");
   } else if (game.insufficient_material()) {
     //$('#status').html(`It's a <b>draw!</b> (Insufficient Material)`);
     showMessage("DRAW","It's a draw!! (Insufficient Material)");
@@ -342,7 +342,7 @@ function checkStatus(color) {
 }
 
 function updateAdvantage() {
-  checkStatus("white");
+  //checkStatus("white");
   $('#progressBar').attr({
     'aria-valuenow': `${-globalSum}`,
     style: `width: ${((-globalSum + 2000) / 4000) * 100}%`,
@@ -356,7 +356,7 @@ function getBestMove(game, color, currSum) {
   
   positionCount = 0;
 
-  var depth = 1; 
+  var depth = 3; 
 
   if (color === 'b') {
     //var depth = parseInt($('#search-depth').find(':selected').text());
