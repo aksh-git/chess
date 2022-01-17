@@ -317,7 +317,7 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
 function checkStatus(color) {
   if (game.in_checkmate()) {
     //$('#status').html(`<b>Checkmate!</b> Oops, <b>${color}</b> lost.`);
-    showMessage("Checkmate!!",color==="black"?"You Wins":"You Lost.");
+    showMessage("Checkmate!!",color==="white"?"black":"White" +" Wins.");
   } else if (game.insufficient_material()) {
     //$('#status').html(`It's a <b>draw!</b> (Insufficient Material)`);
     showMessage("DRAW","It's a draw!! (Insufficient Material)");
@@ -332,7 +332,7 @@ function checkStatus(color) {
     showMessage("DRAW","It's a draw!!");
   } else if (game.in_check()) {
     //$('#status').html(`Oops, <b>${color}</b> is in <b>check!</b>`);
-    topNotify("Oops, "+color+" is in check",true);
+    topNotify("Oops, check!!",true);
     return false;
   } else {
     //$('#status').html(`No check, checkmate, or draw.`);
@@ -356,7 +356,7 @@ function getBestMove(game, color, currSum) {
   
   positionCount = 0;
 
-  var depth = 3; 
+  var depth = 1; 
 
   if (color === 'b') {
     //var depth = parseInt($('#search-depth').find(':selected').text());
@@ -456,8 +456,6 @@ function reset() {
   $board.find('.' + squareClass).removeClass('highlight-black');
   $board.find('.' + squareClass).removeClass('highlight-hint');
   board.position(game.fen());
-  //$('#advantageColor').text('Neither side');
-  //$('#advantageNumber').text(globalSum);
 
   // Kill the Computer vs. Computer callback
   if (timer) {
@@ -468,22 +466,29 @@ function reset() {
 
 
 
-$('#showHint').change(function () {
-  window.setTimeout(showHint, 250);
+$('#showHint').on('click', function () {
+  //window.setTimeout(showHint, 250);
+  showHint();
 });
 
+function removeHint(move){
+  $board.find('.square-' + move.from).removeClass('highlight-hint');
+  $board.find('.square-' + move.to).removeClass('highlight-hint');
+}
+
 function showHint() {
-  var showHint = document.getElementById('showHint');
-  $board.find('.' + squareClass).removeClass('highlight-hint');
+  //var showHint = document.getElementById('showHint');
+  //$board.find('.' + squareClass).removeClass('highlight-hint');
 
   // Show hint (best move for white)
-  if (showHint.checked) {
+  //if (showHint.checked) {
     var move = getBestMove(game, 'w', -globalSum)[0];
 
     $board.find('.square-' + move.from).addClass('highlight-hint');
     $board.find('.square-' + move.to).addClass('highlight-hint');
-  }
+  //}
 }
+
 
 
 /*

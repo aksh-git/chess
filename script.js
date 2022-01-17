@@ -92,6 +92,7 @@ function resetPLayArea(){
     sec = 0;
     reset();
     removeMessage();
+    document.getElementById("progressBar").style.width="50%";
 }
 
 $('#resetBtn').on('click', function () {

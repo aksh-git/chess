@@ -103,6 +103,23 @@ body{
 .chess-board{
     position: relative;
 }
+.highlight-white {
+    box-shadow: inset 0 0 3px 3px yellow;
+}
+
+
+.highlight-hint {
+    box-shadow: inset 0 0 3px 3px red;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+.no-outline:focus {
+    outline: none;
+    box-shadow: none;
+}
 .play-area .btns{
     display: flex;
     justify-content: center;
