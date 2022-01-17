@@ -9,6 +9,7 @@ let messageBar = document.getElementById("message");
 let msgBigText = document.getElementById("bigText");
 let msgSmallText = document.getElementById("smallText");
 let takeBreakBtn = document.getElementById("takeBrake");
+let range = document.getElementById("slider");
 //let hourL = document.getElementById("hour");
 let minL = document.getElementById("min");
 let secL = document.getElementById("sec");
@@ -17,7 +18,12 @@ let min = 0;
 let sec = 0;
 let isPLaying = false;
 let chessTime;
-
+const emoIndex= [
+    './assets/emo/smile.png',
+    './assets/emo/smile-joy.png',
+    './assets/emo/smile-teeth.png',
+    './assets/emo/attitude.png',
+];
 window.onload = ()=>{
    loader.style.display="none";
    topNotify("Welcome!!",true);
@@ -74,6 +80,10 @@ document.addEventListener("keyup", function(event) {
     }
 }); 
 
+range.addEventListener('input', (e) => {
+    let rangeValue = e.target.value;
+    document.getElementById("headerImg").src=emoIndex[rangeValue];
+});
 //onpress enter
 function enterPressed(){
     if(!isPLaying){

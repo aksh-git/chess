@@ -182,10 +182,10 @@ body{
     text-align: center;
     display: none;
 }
-.message .big-text{
+.big-text{
     font-size: 1.7rem;
 }
-.message .small-text{
+.small-text{
     font-size: 18px;
 }
 #progressbar {
@@ -208,7 +208,57 @@ body{
 .music-area{
     background-color: #9da3a3;
 }
-
+.level-selector{
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 15vh;
+    padding: 20px;
+    background: rgb(157, 163, 163, 0.4);
+    backdrop-filter: blur(2px);
+    width: 50vw;
+    z-index: 1;
+}
+.level-selector .slider{
+    text-align: center;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+.slider-container{
+    margin-top: 1vh;
+}
+.range-header{
+    display: flex;
+    justify-content: space-between;
+}
+.range-header img{
+    width: 40px;
+}
+.slider:hover {
+    opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  width: 23px;
+  height: 24px;
+  border: 0;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 600px) {
     body {

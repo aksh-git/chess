@@ -317,7 +317,7 @@ function minimax(game, depth, alpha, beta, isMaximizingPlayer, sum, color) {
 function checkStatus(color) {
   if (game.in_checkmate()) {
     //$('#status').html(`<b>Checkmate!</b> Oops, <b>${color}</b> lost.`);
-    showMessage("Checkmate!!",color==="white"?"black":"White" +" Wins.");
+    showMessage("Checkmate!!",color+" wins.");
   } else if (game.insufficient_material()) {
     //$('#status').html(`It's a <b>draw!</b> (Insufficient Material)`);
     showMessage("DRAW","It's a draw!! (Insufficient Material)");
@@ -347,6 +347,10 @@ function updateAdvantage() {
     'aria-valuenow': `${-globalSum}`,
     style: `width: ${((-globalSum + 2000) / 4000) * 100}%`,
   });
+  if(game.game_over){
+    clearInterval(chessTime);
+    isPLaying=false;
+  }
 }
 
 /*
@@ -356,7 +360,7 @@ function getBestMove(game, color, currSum) {
   
   positionCount = 0;
 
-  var depth = 1; 
+  var depth = parseInt(range.value)+1;
 
   if (color === 'b') {
     //var depth = parseInt($('#search-depth').find(':selected').text());
@@ -377,10 +381,6 @@ function getBestMove(game, color, currSum) {
   var d2 = new Date().getTime();
   var moveTime = d2 - d;
   var positionsPerS = (positionCount * 1000) / moveTime;
-
-  //$('#position-count').text(positionCount);
-  //$('#time').text(moveTime / 1000);
-  //$('#positions-per-s').text(Math.round(positionsPerS));
 
   return [bestMove, bestMoveValue];
 }
