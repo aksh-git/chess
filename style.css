@@ -204,6 +204,7 @@ body{
     background-color: white;
     width: 50%;
     height: 20px;
+    max-width: 100%;
 }
 .music-area{
     background-color: #9da3a3;
@@ -219,6 +220,7 @@ body{
     backdrop-filter: blur(2px);
     width: 50vw;
     z-index: 1;
+    border-radius: 5px;
 }
 .level-selector .slider{
     text-align: center;
