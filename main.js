@@ -347,10 +347,6 @@ function updateAdvantage() {
     'aria-valuenow': `${-globalSum}`,
     style: `width: ${((-globalSum + 2000) / 4000) * 100}%`,
   });
-  if(game.game_over){
-    clearInterval(chessTime);
-    isPLaying=false;
-  }
 }
 
 /*
@@ -483,7 +479,6 @@ function showHint() {
   // Show hint (best move for white)
   //if (showHint.checked) {
     var move = getBestMove(game, 'w', -globalSum)[0];
-
     $board.find('.square-' + move.from).addClass('highlight-hint');
     $board.find('.square-' + move.to).addClass('highlight-hint');
   //}
@@ -561,6 +556,8 @@ function onDrop(source, target) {
       }, 250);
     }, 250);
   }
+
+  removeHint(move);
 }
 
 function onMouseoverSquare(square, piece) {

@@ -48,7 +48,7 @@ function removeMessage(){
     messageBar.style.display="none";
 }
 
-//timer
+/*timer
 function addZero(i) {
     if (i < 10) {i = "0" + i}
     return i;
@@ -71,7 +71,7 @@ function chessTimer(){
     minL.innerHTML=addZero(min)+" :";
     secL.innerHTML=addZero(sec);
 }
-
+*/
 //Handle click
 document.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
@@ -91,9 +91,9 @@ function enterPressed(){
         isPLaying=true;
         mainHead.style.display="none";
         playArea.style.display="block";
-        chessTime = setInterval(() => {
-            chessTimer();
-        }, 1000);
+        //chessTime = setInterval(() => {
+        //    chessTimer();
+        //}, 1000);
     }
 }
 
@@ -111,13 +111,9 @@ $('#resetBtn').on('click', function () {
   
 $('#takeBrake').on('click',function(){
     if(takeBreakBtn.innerHTML==="Resume"){
-        chessTime = setInterval(()=>{
-            chessTimer();
-        },1000);
         takeBreakBtn.innerHTML="Take a Break";
         removeMessage();    
     }else{
-        clearInterval(chessTime);
         takeBreakBtn.innerHTML="Resume";
         showMessage("Paused!!","Press Enter to Resume...");
     }
