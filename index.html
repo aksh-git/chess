@@ -141,7 +141,6 @@
 
         <!-- Play Area -->
         <div id="playArea" class="play-area">
-
             <div class="chess-board">
                 <div id="myBoard"></div>
             </div>
@@ -161,9 +160,46 @@
             </div>
 
             <div class="music">
-
+                <div class="music-player" id="mPlayer">
+                    <div class="menu">
+                        <i id="" class="white fa fa-minus-circle"></i>
+                        <i id="arrowBtn" onClick="arrowClicked()" class="white fa fa-chevron-circle-down" area-hidden="true"></i>
+                    </div>
+                  <div class="player-header">
+                      <span class="player-big-text" id="mainHeading">M-Player</span>
+                      <img class="logo" src="https://raw.githubusercontent.com/aksh-git/chess/master/assets/logo.svg">
+                  </div>
+                  <hr class="white" width="100%" style="margin: 5px 0;">
+                  <div class="player-mid" id="playerMid">
+                    <div class="album">
+                        <img class="album-image" src="./assets/defaultMusicIcon.jpg" >
+                    </div>
+                    <div class="song-list" id="songList">
+                        <ul>
+                            <li>Song Name</li>
+                            <li>Song Name</li>
+                            <li>Song Name</li>
+                            <li>Song Name</li>
+                            <li>Song Name</li>
+                            <li>Song Name</li>
+                            <li>Song Name</li>
+                            <li>Song Name</li>
+                        </ul>
+                    </div>
+                  </div>
+                  <div class="player-controller" id="controller">
+                    <div class="control-btns">
+                        <i onclick="playClicked()" id="playerBtn" class="white fa fa-play" area-hidden="true"></i>
+                    </div>
+                    <input class="player-slider" type="range" id="musicSlider">
+                  </div>
+                  <hr class="white" width="100%" style="margin: 5px 0;">
+                </div>
             </div>
 
+            <div class="music-holder">
+                <i class="white fa fa-music" area-hidden="true"></i>
+            </div>
         </div>
 
         <div class="top-notification" id="topNotification">
@@ -183,5 +219,6 @@
         <script type="text/javascript" src="./script.js"></script>
         <script src="./chess.js"></script>
         <script src="./main.js"></script>
+        <script src="./player.js"></script>
     </body>
 </html>

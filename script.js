@@ -10,6 +10,7 @@ let msgBigText = document.getElementById("bigText");
 let msgSmallText = document.getElementById("smallText");
 let takeBreakBtn = document.getElementById("takeBrake");
 let range = document.getElementById("slider");
+
 //let hourL = document.getElementById("hour");
 let minL = document.getElementById("min");
 let secL = document.getElementById("sec");
@@ -73,6 +74,7 @@ function chessTimer(){
 }
 */
 //Handle click
+
 document.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
       event.preventDefault();
