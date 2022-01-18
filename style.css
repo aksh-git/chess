@@ -387,9 +387,12 @@ body{
     width: 90%;
 } 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     body {
         background: #9da3a3;
+    }
+    .music , .music-holder{
+        display: none;
     }
     .play-area{
         width: 100vw;
