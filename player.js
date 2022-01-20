@@ -5,8 +5,6 @@ let playerMid = document.getElementById("playerMid");
 let arrowBtn = document.getElementById("arrowBtn");
 let track_art = document.getElementById("album-image");
 let playerHead = document.getElementById("playerHead");
-let musicSwitch = document.getElementById("musicSwitch");
-let musicPlaySwitch = document.getElementById("musicPlaySwitch");
 
 let isPlaying = false;
 let mPlayed = new Set();
@@ -194,15 +192,6 @@ playerBtn.addEventListener('click',()=>{
         playTrack();
     }
 });
-musicSwitch.addEventListener('mouseover',()=>{
-    musicPlaySwitch.style.display="block";
-    musicSwitch.style.display="none";
-});
-musicSwitch.addEventListener('mouseout',()=>{
-    musicPlaySwitch.style.display="none";
-    musicSwitch.style.display="block";
-})
-
 function arrowClicked(){
     if(playerMid.style.display==="none"){
         playerMid.style.display="flex";

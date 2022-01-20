@@ -256,6 +256,7 @@ body{
   border: 0;
   background: #000;
   cursor: pointer;
+  border-radius: 50%;
 }
 .slider::-moz-range-thumb {
   width: 23px;
@@ -263,6 +264,7 @@ body{
   border: 0;
   cursor: pointer;
   background: #000;
+  border-radius: 50%;
 }
 /* music player */
 .music-holder{
