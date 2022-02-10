@@ -203,7 +203,7 @@ body{
 }
 #progressbar>div {
     background-color: white;
-    width: 50%;
+    width: 0%;
     height: 20px;
     max-width: 100%;
 }
